@@ -2,11 +2,287 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="./assets/styles.css">
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/images/icon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/style.css">
+  <title>AssetShare</title>
 </head>
 
-<body>
-    <div>Hello World!</div>
+<body class="bg-[#f9f9f9]">
+  <div class="h-full mx-auto overflow-hidden">
+    <div class="w-full h-fit">
+      <!-- Header Banner Starts-->
+      <div class="relative w-full h-[527px]">
+        <!-- <div
+          class="w-full h-[900px] absolute left-[-1px] top-[-373px] bg-cover bg-no-repeat bg-[url('/images/headerbackground.jpeg')]">
+        </div> -->
+        <div>
+          <img src="/images/headerbackground.jpeg"
+            class="w-full h-[900px] absolute left-[-1px] top-[-373px] object-cover" />
+        </div>
+        <div class="w-full h-[656px] absolute left-[0px] top-[-130px]"
+          style="background: linear-gradient(to bottom, rgba(45,45,47,0.75) 0%, rgba(45,45,47,0) 162.55%);"></div>
+        <div class="w-full h-[527px] absolute left-[1px] top-[1px]">
+          <div class="flex flex-col items-center w-full h-full px-5 py-5">
+            <div class="w-full max-w-[1440px]">
+              <div class="flex flex-row w-full gap-4">
+                <div class="basis-[57px]">
+                  <!-- Company logo -->
+                  <div class="w-[57px] h-[62px]  bg-cover bg-no-repeat bg-[url('/images/banner-logo.png')]">
+                  </div>
+                </div>
+                <div class="basis-[162px] pt-4">
+                  <!-- Company Text -->
+                  <p class="w-[154px] h-[26px] text-2xl font-bold text-left">
+                    <span class="w-[154px] h-[26px] text-2xl font-bold text-left text-[#ffd602]">ASSET</span><span
+                      class="w-[154px] h-[26px] text-2xl font-bold text-left text-white">SHARE</span>
+                  </p>
+                </div>
+                <div class="text-right basis-full">
+                  <!-- Banner Sign In Button -->
+                  <a href="https://app.assetshare.co.za/login"
+                    class="bg-[#2D2D2F] rounded-[5px] text-lg font-bold leading-[21px] py-3 px-4 cursor-pointer text-white">Sign
+                    In</a>
+                </div>
+              </div>
+              <div class="flex flex-col w-full gap-10 mt-40">
+                <div class="w-full text-center">
+                  <!-- Title -->
+                  <p class="w-full text-5xl font-bold text-white">
+                    Improving Construction Efficiency Through Technology.
+                  </p>
+                </div>
+                <div class="w-full text-center">
+                  <!-- Sign Up Button -->
+                  <a href="https://app.assetshare.co.za/register"
+                    class="bg-[#3F2A7B] text-white rounded-[5px] text-lg font-bold leading-[21px] py-3 px-4 cursor-pointer">Sign
+                    Up Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Header Banner Ends-->
+      <div class="flex flex-col items-center w-full">
+        <div class="max-w-[1440px]">
+          <div class="w-full h-[450px]" id="info-row-1">
+            <div class="flex flex-row justify-center w-full gap-20 py-20">
+              <!-- Card 1 -->
+              <div class="w-[300px]">
+                <div class="flex flex-col gap-2">
+                  <div id="icon-fact-check"
+                    class=" mx-auto w-[110px] h-[110px] bg-[#FFD602] rounded-full opacity-100 border-[5px] border-solid border-[#ffbe00]/[.35] bg-clip-padding flex justify-center items-center">
+                    <img src="/icons/fact-check.svg" alt="Fact check icon." />
+                  </div>
+                  <div class="my-2 text-2xl font-bold leading-7 text-left">Quick Price Comparisons</div>
+                  <div class="text-base font-normal leading-5 text-center">Our sophisticated platform is able to provide
+                    our
+                    customers with the latest equipment and machinery
+                    available for rental.</div>
+                </div>
+              </div>
+              <!-- Card 1 -->
+              <div class="w-[300px]">
+                <div class="flex flex-col gap-2">
+                  <div id="icon-fact-check"
+                    class=" mx-auto w-[110px] h-[110px] bg-[#FFD602] rounded-full opacity-100 border-[5px] border-solid border-[#ffbe00]/[.35] bg-clip-padding flex justify-center items-center">
+                    <img src="/icons/shopping-basket.svg" alt="Fact check icon." />
+                  </div>
+                  <div class="my-2 text-2xl font-bold leading-7 text-left">Quick Price Comparisons</div>
+                  <div class="text-base font-normal leading-5 text-center">Our sophisticated platform is able to provide
+                    our
+                    customers with the latest equipment and machinery
+                    available for rental.</div>
+                </div>
+              </div>
+              <!-- Card 1 -->
+              <div class="w-[300px]">
+                <div class="flex flex-col gap-2">
+                  <div id="icon-fact-check"
+                    class=" mx-auto w-[110px] h-[110px] bg-[#FFD602] rounded-full opacity-100 border-[5px] border-solid border-[#ffbe00]/[.35] bg-clip-padding flex justify-center items-center">
+                    <img src="/icons/fast-forward.svg" alt="Fact check icon." />
+                  </div>
+                  <div class="my-2 text-2xl font-bold leading-7 text-left">Quick Price Comparisons</div>
+                  <div class="text-base font-normal leading-5 text-center">Our sophisticated platform is able to provide
+                    our
+                    customers with the latest equipment and machinery
+                    available for rental.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="w-full h-[1068px] bg-[#F1F1F1]" id="info-row-rentails">
+            <div class="px-20 py-20">
+              <div class="flex flex-col gap-20">
+                <!-- Equipement Rentails Starts Here-->
+                <div class="flex flex-row justify-center gap-10">
+                  <div
+                    class="basis-1/2 w-[684px] h-[386px] bg-center bg-no-repeat bg-contain bg-[url('/images/laptop-website.png')]">
+
+                  </div>
+                  <div class="basis-1/2">
+                    <p class="font-bold text-4xl leading[43px] mb-4">Equipment Rentals</p>
+                    <div class="w-fit">
+                      <p class="text-base font-normal leading-5 text-left">Our online market place is has an equipment
+                        catalogue with variety of equipment for rental
+                        close to where your business is situated. The entire rental process is completed online with
+                        instant
+                        price calculators that consider your location and the type of machinery required.<br><br><br>
+                        Our goal is to
+                        streamline the admin process. Making it quicker for you to get the quotes you need, book your
+                        equipment needed and get going on your project. </p>
+                    </div>
+                    <div class="mt-16 text-right">
+                      <button
+                        class="bg-[#FFD602] rounded-[5px] text-lg font-bold leading-[21px] py-3 px-4 cursor-pointer text-black">Sign
+                        Up</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Equipement Rentails Ends Here-->
+                <!-- Price Comparison Starts Here-->
+                <div class="flex flex-row justify-center gap-10">
+                  <div class="basis-1/2">
+                    <p class="font-bold text-4xl leading[43px] mb-4">Direct Price Comparison</p>
+                    <div class="w-fit">
+                      <p class="text-base font-normal leading-5 text-left">The platform’s instant price calculation
+                        capability empowers customers in the construction industry to directly compare prices of
+                        machinery
+                        within their area. </p>
+                    </div>
+                    <div class="mt-48 text-right">
+                      <button
+                        class="bg-[#3F2A7B] text-white rounded-[5px] text-lg font-bold leading-[21px] py-3 px-4 cursor-pointer">Contact
+                        Us</button>
+                    </div>
+                  </div>
+                  <div
+                    class="basis-1/2 w-[684px] h-[386px] bg-center bg-no-repeat bg-contain bg-[url('/images/laptop-website.png')]">
+                  </div>
+                </div>
+                <!-- Price Comparison Ends Here-->
+              </div>
+            </div>
+          </div>
+          <div class="w-full h-fit" id="info-row-signup">
+            <!-- Sign Up Starts Here-->
+            <div class="px-20 py-20">
+              <div class="flex flex-row justify-center gap-10">
+                <div
+                  class="basis-1/2 w-[684px] h-[386px] bg-center bg-no-repeat bg-contain bg-[url('/images/laptop-website.png')]">
+                </div>
+                <div class="basis-1/2">
+                  <p class="font-bold text-5xl leading[57px] mb-4">Sign Up now and become part of making construction
+                    easier.</p>
+                  <div class="text-right">
+                  <!-- Sign Up Button -->
+                  <a href="https://app.assetshare.co.za/register"
+                    class="bg-[#3F2A7B] text-white rounded-[5px] text-lg font-bold leading-[21px] py-3 px-4 cursor-pointer">Sign
+                    Up Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Sign Up Ends Here-->
+          </div>
+          <div class="w-full h-fit bg-[#F1F1F1]" id="info-meet-the-team">
+            <div class="flex justify-center w-full pt-8">
+              <div class="font-bold text-6xl leading[43px] mb-4 text-left text-white">Meet the team</div></div>
+            <div class="flex flex-row justify-center w-full gap-4 p-20">
+              <!-- Founder/CEO Starts Here -->
+              <div class="w-[300px]">
+                <div class="flex flex-col items-center w-full gap-4">
+                  <div class="">
+                    <img src="/images/founder-ceo.jpeg" class="h-[150px] w-[150px] rounded-full object-cover" />
+                  </div>
+                  <div>
+                    <p class="text-2xl font-bold leading-7 h-[60px]">Founder/CEO</p>
+                    <p class="mt-4 text-base font-normal leading-5">TEBOGO MPE</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Founder/CEO Ends Here -->
+              <!-- Angel Investor Starts Here -->
+              <div class="w-[300px]">
+                <div class="flex flex-col items-center w-full gap-4">
+                  <div class="">
+                    <img src="/images/angel-investor.jpeg" class="h-[150px] w-[150px] rounded-full object-cover" />
+                  </div>
+                  <div>
+                    <p class="text-2xl font-bold leading-7 h-[60px]">Angel Investor</p>
+                    <p class="mt-4 text-base font-normal leading-5">TUMELO MATLALA</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Angel Investor Ends Here -->
+              <!-- Bus. Dev. Off Starts Here -->
+              <div class="w-[300px]">
+                <div class="flex flex-col items-center w-full gap-4">
+                  <div class="">
+                    <img src="/images/bdo.jpeg" class="h-[150px] w-[150px] rounded-full object-cover" />
+                  </div>
+                  <div>
+                    <p class="text-2xl font-bold leading-7 h-[60px]">Business Development Officer</p>
+                    <p class="mt-4 text-base font-normal leading-5">KARABO SEKHAME</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Bus. Dev. Off Ends Here -->
+            </div>
+          </div>
+          <div class="w-full h-[302px]" id="footer">
+            <!-- Footer Starts Here-->
+            <div class="px-8 pt-8 h-[450px] bg-[#383838]/[0.8] text-white">
+              <div class="grid w-full grid-cols-2 pb-5 text-left">
+                <div class="flex flex-row gap-10">
+                  <div class="w-auto py-4">
+                    <div class="bg-no-repeat bg-contain h-[8.313rem] w-[9.625rem]"
+                      style="background-image: url('/images/footerlogo.png');"></div>
+                  </div>
+                  <div class="">
+                    <p class="">AssetShare Holdings (Pty) Ltd</p>
+                    <p class="my-4">9 Baobab Road</p>
+                    <p class="my-4">Olivedale</p>
+                    <p class="my-4">Sharonlea</p>
+                  </div>
+                </div>
+                <div class="relative">
+                  <span class="absolute bottom-0 right-0">
+                    <svg width="63" height="67" viewBox="0 0 63 67" fill="none" xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <a xlink:href="https://za.linkedin.com/company/assetshare">
+                      <mask id="mask0_1178_1408" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="4" y="0"
+                        width="59" height="59">
+                        <rect x="4" width="59" height="59" fill="url(#pattern0)" />
+                      </mask>
+                      <g mask="url(#mask0_1178_1408)">
+                        <rect x="-6" width="69" height="69" fill="white" />
+                      </g>
+                      <defs>
+                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                          <use xlink:href="#image0_1178_1408" transform="scale(0.0104167)" />
+                        </pattern>
+                        <image id="image0_1178_1408" width="96" height="96"
+                          xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAADRUlEQVR4nO3dO2sVQRjG8X805iheOkkhiASskoiVYLBUBKM2XioLQYV8A0Hs7OM1WvoBRIyg4L2wsLBR0FIEBVGMjSYiamIsJoEj5uTMzF7e3dnnB1PtzuzsPDmbnT27e0BERERERERERMTfMHAReA3MAPOJl5mFfb0ADOUwftFawFVgDvtBsSpzwATQl3Esg7WAJxk6nlp5TMkhXCtgJ+permQa0QDDNPuw06nMAoOhg7kitAJwMrJe6lYCJ0IrxQzk7og6TbEntEJPxEamgXUR9ZpgGtgQUiEmgPmIOk0SNKY6lhtTAMYUgDEFYKzXYJvPgFvAG9yEbgA4CowY9KWWYmeKP3AD3clx3GzSekabtRQutmM+s8SzGdqvSglS1jzgA7AZ+NNlvbXAFLAmYhtVUcl5wHO6Dz7Ad9yXHY1RVgA+g79orrBeVFBZAWzzXK9FxCXdOisrgK3APo/1TgHrC+5L7cWeHXwGti/T7gHcqar1WUySZ0GLfgLXgdvAO9whZwg3P9gf2Z+qCdoHXY7OXyVPQ6UDBWBMARhTAMbKCuAT7p+TT+nmiGc77TdK/QYmgTFgB9APrMZdcxoAjgH3MuxfqWLOjT/m2P5hz3YuL6x/E3ch0Mco7o+ltHlA6oegc8Ah4L3n+ndx9z19KaxHOajLJyD4Jqk2ox79yOUTEKMuAWQ16dEXHYIKdL6MjSiAzp4Cb4veSBMC6MUd00/jrrj67vM88KCoTi2yuC2lTJuAO/x7Gfw+cBD45VH/RRGdapfyJ6AHuMH/30HsBc54tvEy1x4tIeUARoCdHZaN4TfrnsqvO0tLOYBdyyzrB7Z4tPE1p750lHIA/V2Wb/Ro41seHVlOygGsyrgc3K2ShUo5gFpQAMYUgDEFYEwBGFMAxhSAMQVgTAEYUwDGFIAxBWBMARhTAMb0gEb+9IBGnSgAYwrAmAIwpgCMKQBjCsBYTAAzufciHcH3EcUE4Pu4TxMFj01MAA8j6jRF4bezg3u5Rgov18u7RL2+PtZECTtUt3Ip04gG6sP9bIf1TlelPMLgd2T6cE+jN/lwNIv7yy998NsNAuPAK9z7860HpegyvbCv4zTs/XYiIiIiIiIiIpLNX2FVAcNCxrOBAAAAAElFTkSuQmCC" />
+                      </defs>
+                    </a>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <hr>
+              <div class="pt-10 text-left text-white">
+                <p>@ 2022 AssetShare. All rights reserved</p>
+              </div>
+            </div>
+            <!-- Footer Ends Here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
