@@ -11,7 +11,7 @@
 </head>
 
 <body class="bg-[#f9f9f9]">
-  <div class="h-full mx-auto overflow-hidden">
+  <div class="h-full mx-auto">
     <div class="w-full h-fit">
       <!-- Header Banner Starts-->
       <div class="relative w-full h-[527px]">
@@ -20,7 +20,7 @@
         </div> -->
         <div>
           <img src="/images/headerbackground.jpeg"
-            class="w-full h-[900px] absolute left-[-1px] top-[-373px] object-cover" />
+            class="w-screen h-[900px] absolute left-[-1px] top-[-373px] object-cover" />
         </div>
         <div class="w-full h-[656px] absolute left-[0px] top-[-130px]"
           style="background: linear-gradient(to bottom, rgba(45,45,47,0.75) 0%, rgba(45,45,47,0) 162.55%);"></div>
@@ -51,7 +51,7 @@
                     In</a>
                 </div>
               </div>
-              <div class="flex flex-col w-full gap-10 mt-40">
+              <div class="flex flex-col w-full gap-10 mt-24 lg:mt-40">
                 <div class="w-full text-center">
                   <!-- Title -->
                   <p class="w-full text-5xl font-bold text-white">
@@ -71,12 +71,12 @@
       </div>
       <!-- Header Banner Ends-->
       <div class="flex flex-col items-center w-full px-5">
-        <div class="max-w-[1440px]">
-          <div class="w-full h-[450px]" id="info-row-1">
-            <div class="flex flex-row justify-center w-full gap-20 py-20">
+        <div class="max-w-full lg:max-w-[1440px]">
+          <div class="w-full h-full lg:h-[450px]" id="info-row-1">
+            <div class="flex flex-col items-center justify-center w-full gap-20 py-20 md:flex-row">
               <!-- Card 1 -->
               <div class="w-[350px]">
-                <div class="flex flex-col gap-2">
+                <div class="flex flex-col items-center gap-2">
                   <div id="icon-fact-check"
                     class=" mx-auto w-[110px] h-[110px] bg-[#FFD602] rounded-full opacity-100 border-[5px] border-solid border-[#ffbe00]/[.35] bg-clip-padding flex justify-center items-center">
                     <img src="/icons/fact-check.svg" alt="Fact check icon." />
@@ -90,7 +90,7 @@
               </div>
               <!-- Card 1 -->
               <div class="w-[350px]">
-                <div class="flex flex-col gap-2">
+                <div class="flex flex-col items-center gap-2">
                   <div id="icon-fact-check"
                     class=" mx-auto w-[110px] h-[110px] bg-[#FFD602] rounded-full opacity-100 border-[5px] border-solid border-[#ffbe00]/[.35] bg-clip-padding flex justify-center items-center">
                     <img src="/icons/shopping-basket.svg" alt="Fact check icon." />
@@ -103,7 +103,7 @@
               </div>
               <!-- Card 1 -->
               <div class="w-[350px]">
-                <div class="flex flex-col gap-2">
+                <div class="flex flex-col items-center gap-2">
                   <div id="icon-fact-check"
                     class=" mx-auto w-[110px] h-[110px] bg-[#FFD602] rounded-full opacity-100 border-[5px] border-solid border-[#ffbe00]/[.35] bg-clip-padding flex justify-center items-center">
                     <img src="/icons/fast-forward.svg" alt="Fact check icon." />
@@ -115,14 +115,14 @@
               </div>
             </div>
           </div>
-          <div class="w-full h-[1068px] bg-[#F1F1F1]" id="info-row-rentails">
-            <div class="px-20 py-20">
+          <div class="w-full h-fit md:h-[1068px] bg-[#F1F1F1]" id="info-row-rentails">
+            <div class="p-8 lg:p-20">
               <div class="flex flex-col gap-20">
                 <!-- Equipement Rentails Starts Here-->
-                <div class="flex flex-row justify-center gap-10">
+                <div class="flex flex-col items-center justify-center gap-10 md:flex-row">
                   <div
-                    class="basis-1/2 w-[684px] h-[386px] bg-center bg-no-repeat bg-contain bg-[url('/images/laptop-website.png')]">
-
+                    class="w-full h-full basis-1/2">
+                      <img class="object-scale-down lg:w-[684px] h-full lg:h-[386px]" src="/images/laptop-website.png">
                   </div>
                   <div class="basis-1/2">
                     <p class="font-bold text-4xl leading[43px] mb-4">Equipment Rentals</p>
@@ -145,7 +145,7 @@
                 </div>
                 <!-- Equipement Rentails Ends Here-->
                 <!-- Price Comparison Starts Here-->
-                <div class="flex flex-row justify-center gap-10">
+                <div class="flex flex-col items-center justify-center gap-10 md:flex-row">
                   <div class="basis-1/2">
                     <p class="font-bold text-4xl leading[43px] mb-4">Direct Price Comparison</p>
                     <div class="w-fit">
@@ -154,14 +154,15 @@
                         machinery
                         within their area. </p>
                     </div>
-                    <div class="mt-48 text-right">
+                    <div class="mt-10 text-right lg:mt-48">
                       <button onclick="bottomFunc()"
                         class="bg-[#3F2A7B] text-white rounded-[5px] text-lg font-bold leading-[21px] py-3 px-4 cursor-pointer">Contact
                         Us</button>
                     </div>
                   </div>
                   <div
-                    class="basis-1/2 w-[684px] h-[386px] bg-center bg-no-repeat bg-contain bg-[url('/images/laptop-website.png')]">
+                    class="w-full h-full basis-1/2">
+                      <img class="object-scale-down lg:w-[684px] h-full lg:h-[386px]" src="/images/laptop-website.png">
                   </div>
                 </div>
                 <!-- Price Comparison Ends Here-->
@@ -170,11 +171,12 @@
           </div>
           <div class="w-full h-fit" id="info-row-signup">
             <!-- Sign Up Starts Here-->
-            <div class="px-20 py-20">
-              <div class="flex flex-row justify-center gap-10">
+            <div class="p-8 lg:p-20">
+              <div class="flex flex-col items-center justify-center gap-10 md:flex-row">
                 <div
-                  class="basis-1/2 w-[684px] h-[386px] bg-center bg-no-repeat bg-contain bg-[url('/images/laptop-website.png')]">
-                </div>
+                class="hidden w-full h-full basis-1/2 md:block">
+                  <img class="object-scale-down lg:w-[684px] h-full lg:h-[386px]" src="/images/laptop-website.png">
+              </div>
                 <div class="basis-1/2">
                   <p class="font-bold text-5xl leading[57px] mb-4">Sign Up now and become part of making construction
                     easier.</p>
@@ -193,7 +195,7 @@
             <div class="flex justify-center w-full pt-8">
               <div class="font-bold text-6xl leading[43px] mb-4 text-left text-white">Meet the team</div>
             </div>
-            <div class="flex flex-row justify-center w-full gap-4 p-20">
+            <div class="flex flex-col items-center w-full gap-4 p-20 md:flex-row">
               <!-- Founder/CEO Starts Here -->
               <div class="w-[300px]">
                 <div class="flex flex-col items-center w-full gap-4">
@@ -235,28 +237,28 @@
               <!-- Bus. Dev. Off Ends Here -->
             </div>
           </div>
-          <div class="w-full h-[302px]" id="footer">
+          <div class="w-full h-fit lg:h-[302px]" id="footer">
             <!-- Footer Starts Here-->
-            <div class="px-8 pt-8 h-[450px] bg-[#383838]/[0.8] text-white">
-              <div class="flex flex-row w-full gap-14">
+            <div class="px-8 pt-8 h-fit lg:h-[450px] bg-[#383838]/[0.8] text-white">
+              <div class="flex flex-col items-center w-full lg:items-stretch md:flex-row gap-14">
                   <div class="py-4 w-fit basis-[155px]">
                     <div class="bg-no-repeat bg-contain h-[8.313rem] w-[9.625rem]"
                       style="background-image: url('/images/footerlogo.png');"></div>
                   </div>
-                  <div class="basis-[220px]">
+                  <div class="basis-full lg:basis-[220px]">
                     <p class="">AssetShare Holdings (Pty) Ltd</p>
                     <p class="my-4">9 Baobab Road</p>
                     <p class="my-4">Olivedale</p>
                     <p class="my-4">Sharonlea</p>
                   </div>
-                  <div class="basis-full">
+                  <div class="h-full basis-full">
                     <div class="float-right">
                     <p>Email: info@assetshare.co.za</p>
                     <p>Cell: +27 902 6417</p>
                     <p>Availability: Monday - Friday</p>
                   </div>
                   </div>
-                <div class="relative w-24 basis-24">
+                <div class="relative w-24 mt-10 basis-full lg:basis-24 lg:mt-0">
                   <span class="absolute bottom-0 right-0">
                     <svg width="63" height="67" viewBox="0 0 63 67" fill="none" xmlns="http://www.w3.org/2000/svg"
                       xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -281,8 +283,8 @@
                 </div>
               </div>
               <hr>
-              <div class="pt-10 text-left text-white">
-                <p>@ 2022 AssetShare. All rights reserved</p>
+              <div class="pt-10 text-center text-white lg:text-left">
+                <p class="">@ 2022 AssetShare. All rights reserved</p>
               </div>
             </div>
             <!-- Footer Ends Here -->
@@ -292,20 +294,6 @@
     </div>
   </div>
   <script>
-    // Get the button
-    let mybutton = document.getElementById("myBtn");
-
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function () { scrollFunction() };
-
-    function scrollFunction() {
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        mybutton.style.display = "block";
-      } else {
-        mybutton.style.display = "none";
-      }
-    }
-
     // When the user clicks on the button, scroll to the top of the document
     function bottomFunc() {
       //document.body.scroll = 0;
