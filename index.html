@@ -96,8 +96,9 @@
                     <img src="/icons/shopping-basket.svg" alt="Fact check icon." />
                   </div>
                   <div class="my-2 text-2xl font-bold leading-7 text-left">Efficient and smooth process</div>
-                  <div class="text-base font-normal leading-5 text-center">We save your time so that you don’t have to go to multiple suppliers to get quotations.
-                     Our systems does that for you.</div>
+                  <div class="text-base font-normal leading-5 text-center">We save your time so that you don’t have to
+                    go to multiple suppliers to get quotations.
+                    Our systems does that for you.</div>
                 </div>
               </div>
               <!-- Card 1 -->
@@ -108,7 +109,8 @@
                     <img src="/icons/fast-forward.svg" alt="Fact check icon." />
                   </div>
                   <div class="my-2 text-2xl font-bold leading-7 text-left">Fast equipment turnaround </div>
-                  <div class="text-base font-normal leading-5 text-center">Our equipment is available almost instantly once your quotation has been approved.</div>
+                  <div class="text-base font-normal leading-5 text-center">Our equipment is available almost instantly
+                    once your quotation has been approved.</div>
                 </div>
               </div>
             </div>
@@ -153,7 +155,7 @@
                         within their area. </p>
                     </div>
                     <div class="mt-48 text-right">
-                      <button
+                      <button onclick="bottomFunc()"
                         class="bg-[#3F2A7B] text-white rounded-[5px] text-lg font-bold leading-[21px] py-3 px-4 cursor-pointer">Contact
                         Us</button>
                     </div>
@@ -236,8 +238,8 @@
           <div class="w-full h-[302px]" id="footer">
             <!-- Footer Starts Here-->
             <div class="px-8 pt-8 h-[450px] bg-[#383838]/[0.8] text-white">
-              <div class="grid w-full grid-cols-2 pb-5 text-left">
-                <div class="flex flex-row gap-10">
+              <div class="grid w-full grid-cols-3 pb-5 text-left">
+                <div class="flex flex-row w-full gap-10">
                   <div class="w-auto py-4">
                     <div class="bg-no-repeat bg-contain h-[8.313rem] w-[9.625rem]"
                       style="background-image: url('/images/footerlogo.png');"></div>
@@ -247,6 +249,13 @@
                     <p class="my-4">9 Baobab Road</p>
                     <p class="my-4">Olivedale</p>
                     <p class="my-4">Sharonlea</p>
+                  </div>
+                </div>
+                <div class="flex flex-row justify-end w-full">
+                  <div class="">
+                    <p>Email: info@assetshare.co.za</p>
+                    <p>Cell: +27 902 6417</p>
+                    <p>Availability: Monday - Friday</p>
                   </div>
                 </div>
                 <div class="relative">
@@ -284,6 +293,28 @@
       </div>
     </div>
   </div>
+  <script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function bottomFunc() {
+      //document.body.scroll = 0;
+      //document.documentElement.scrollTop = 0;
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+  </script>
 </body>
 
 </html>
