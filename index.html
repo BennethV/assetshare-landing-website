@@ -14,16 +14,17 @@
   <div class="h-full mx-auto">
     <div class="w-full h-fit">
       <!-- Header Banner Starts-->
-      <div class="relative w-full h-[527px]">
+      <div class="relative w-full h-[790px]">
         <!-- <div
           class="w-full h-[900px] absolute left-[-1px] top-[-373px] bg-cover bg-no-repeat bg-[url('/images/headerbackground.jpeg')]">
         </div> -->
-        <div>
+        <div id="header-image-background-div">
           <img src="/images/headerbackground.jpeg"
-            class="w-screen h-[900px] absolute left-[-1px] top-[-373px] object-cover" />
+            class="w-screen h-[790px] object-cover" />
         </div>
-        <div class="w-full h-[656px] absolute left-[0px] top-[-130px]"
-          style="background: linear-gradient(to bottom, rgba(45,45,47,0.75) 0%, rgba(45,45,47,0) 162.55%);"></div>
+        <!-- TODO:overlay should only be on image -->
+        <!-- <div class="w-full h-[790px] absolute left-[0px] top-[-130px]"
+          style="background: linear-gradient(to bottom, rgba(45,45,47,0.75) 0%, rgba(45,45,47,0) 162.55%);"></div> -->
         <div class="w-full h-[527px] absolute left-[1px] top-[1px]">
           <div class="flex flex-col items-center w-full h-full px-5 py-8">
             <div class="w-full max-w-[1440px]">
@@ -58,24 +59,33 @@
                     </div>
                     <div class="mt-4">
                       <a href="https://app.assetshare.co.za" target="_blank"
-                        class="bg-[#FFD602] hover:bg-[#DFBB00] rounded-[5px] text-lg font-bold leading-[21px] py-3 px-4 cursor-pointer text-black">Rent
+                        class="bg-[#3F2A7B] hover:bg-[#322162] rounded-[5px] text-lg font-bold leading-[21px] py-3 px-4 cursor-pointer text-white">Rent
                         A Machine</a>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="flex flex-col w-full gap-10 mt-16 lg:mt-40">
-                <div class="w-full text-center">
-                  <!-- Title -->
-                  <p class="w-full text-5xl font-bold text-white">
-                    Improving Construction Efficiency Through Technology.
-                  </p>
-                </div>
-                <div class="w-full text-center">
-                  <!-- Sign Up Button -->
-                  <a href="https://app.assetshare.co.za/register" target="_blank"
-                    class="bg-[#3F2A7B] hover:bg-[#322162] text-white rounded-[5px] text-lg font-bold leading-[21px] py-3 px-4 cursor-pointer">Sign
-                    Up Now</a>
+              <div class="flex w-full items-center justify-center">
+                <div class="flex flex-col w-[686px]  gap-10 mt-16 lg:mt-40">
+                  <div class="w-full text-center">
+                    <!-- Title -->
+                    <p class="w-full text-5xl font-bold text-white">
+                      Improving Construction <br> Efficiency Through Technology.
+                    </p>
+                  </div>
+                  <div class="w-full text-center">
+                    <!-- Subtitle -->
+                    <p class="w-full text-base font-normal text-white mb-8">
+                      Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante
+                      odio sit amet eros.
+                    </p>
+                  </div>
+                  <div class="w-full text-center">
+                    <!-- Sign Up Button -->
+                    <a href="https://app.assetshare.co.za/register" target="_blank"
+                      class="bg-[#FFD602] hover:bg-[#DFBB00] text-black rounded-[5px] text-lg font-bold leading-[21px] py-3 px-4 cursor-pointer">Sign
+                      Up Now</a>
+                  </div>
                 </div>
               </div>
             </div>
