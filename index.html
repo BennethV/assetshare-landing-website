@@ -9,6 +9,11 @@
   <link rel="stylesheet" href="/style.css">
   <title>AssetShare</title>
 </head>
+<script>
+  function scrollToBottom() {
+    window.scrollTo(0, document.body.scrollHeight, 'smooth');
+  }
+</script>
 
 <body class="bg-[#f9f9f9]">
   <div class="h-full mx-auto">
@@ -208,12 +213,60 @@
                       <p class="font-bold text-base text-[#637381]">A quick view of...</p>
                     </div>
                   </div>
-                    
+
                 </div>
               </div>
             </div>
           </div>
           <!-- AssetShare Demo Video Ends Here -->
+          <!-- Rentals Starts Here -->
+          <div class="w-full p-20" id="rentals">
+            <div class="w-full flex flex-row">
+              <div class="w-full pl-10 pr-10">
+                <div class="w-full flex flex-col items-center justify-center gap-16">
+                  <div class="flex flex-col gap-6">
+                    <div>
+                      <p class="font-bold text-5xl leading[64px] mb-6">Equipment Rentals</p>
+                    </div>
+                    <div class="w-fit">
+                      <p class="text-base font-normal leading-5 text-left w-[440px] text-[#637381]">Our online market
+                        place is has an equipment catalogue with variety of equipment for rental close to where your
+                        business is situated. The entire rental process is completed online with instant price
+                        calculators that consider your location and the type of machinery required.<br><br>Our goal is
+                        to
+                        streamline the admin process. Making it quicker for you to get the quotes you need, book your
+                        equipment needed and get going on your project. </p>
+                    </div>
+                    <div>
+                      <a href="https://app.assetshare.co.za/register" target="_blank"
+                        class="bg-white hover:bg-gray-200 text-black rounded-[5px] border-[#919EAB52] border text-lg font-bold leading-[21px] py-3 px-6 cursor-pointer w-[120px]">Sign
+                        Up</a>
+                    </div>
+                  </div>
+                  <div class="flex flex-col gap-6">
+                    <div>
+                      <p class="font-bold text-5xl leading[64px] mb-6">Direct Price<br> Comparison</p>
+                    </div>
+                    <div class="w-fit">
+                      <p class="text-base font-normal leading-5 text-left w-[440px] text-[#637381]">The platform’s
+                        instant price calculation capability empowers customers in the construction industry to directly
+                        compare prices of machinery within their area.</p>
+                    </div>
+                    <div>
+                      <button onclick="scrollToBottom()"
+                        class="bg-white hover:bg-gray-200 text-black rounded-[5px] border-[#919EAB52] border text-lg font-bold leading-[21px] py-3 px-6 cursor-pointer w-[160px]">Contact
+                        Us</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="shrink-0">
+                <img src="/images/excavator.jpg" class="object-contain w-[544px] h-[624px] object-center" />
+              </div>
+
+            </div>
+          </div>
+          <!-- Rentals Ends Here -->
           <div class="w-full h-fit md:h-[1068px] bg-[#F1F1F1]" id="info-row-rentails">
             <div class="p-8 lg:p-20">
               <div class="flex flex-col gap-20">
