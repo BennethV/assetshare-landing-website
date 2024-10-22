@@ -51,6 +51,15 @@
     margin-left: 10px;
     margin-left: 16px;
   }
+
+  .left-caret:after {
+    /*Left caret*/
+    content: '<';
+    color: #212B36;
+    float: left;
+    font-weight: 100;
+    margin-right: 10px;
+  }
 </style>
 <script>
   function scrollToBottom() {
@@ -336,8 +345,40 @@
           </div>
           <!-- Rentals Ends Here -->
           <!-- Testimonials Starts Here -->
-          <div class="w-full h-fit md:h-[500px] bg-[#F1F1F1]  p-20" id="testimonials">
+          <div class="w-full h-fit md:h-[500px] bg-[#F1F1F1] px-36 py-20" id="testimonials">
+            <div class="w-full flex flex-row py-4">
+              <div class="basis-[200px]">
+                <div class="flex items-center justify-center h-full w-full cursor-pointer">
+                  <button class="left-caret"></button>
+                </div>
+              </div>
+              <div class="basis-full">
+                <div class="flex flex-col items-center gap-20">
+                  <div>
+                    <p class="text-[#3F2A7B] font-bold text-sm leading-4">OUR CLIENT TESTIMONIALS</p>
+                  </div>
+                  <div>
+                    <p class="font-normal text-xl leading-9 text-[#212B36] w-[530px]">"Assetshare simplifies the process
+                      of renting out my machinery. Uploading is quick and easy, and
+                      managing my listings is seamless. I'm extremely satisfied!"</p>
+                  </div>
+                  <div>
+                    <div class="flex flex-row gap-4">
+                      <div class="cursor-pointer rounded-full w-[8px] h-[8px] bg-[#f8e3a6]"></div>
+                      <div class="cursor-pointer rounded-full w-[8px] h-[8px] bg-[#FFBE00]"></div>
+                      <div class="cursor-pointer rounded-full w-[8px] h-[8px] bg-[#f8e3a6]"></div>
+                      <div class="cursor-pointer rounded-full w-[8px] h-[8px] bg-[#f8e3a6]"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="basis-[200px]">
+                <div class="flex items-center justify-center h-full w-full cursor-pointer">
+                  <button class="right-caret"></button>
+                </div>
+              </div>
 
+            </div>
           </div>
           <!-- Testimonials Ends Here -->
 
