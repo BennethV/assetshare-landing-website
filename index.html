@@ -26,18 +26,30 @@
     color: #212B36;
     float: right;
     margin-left: 5px;
+    font-weight: 100;
   }
 
   .active:after {
     /*icon ^ */
     content: '^';
     font-size: 24px;
+    font-weight: 100;
   }
 
   .content {
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.2s ease-out;
+  }
+
+  .right-caret:after {
+    /*Right caret*/
+    content: '>';
+    color: #212B36;
+    float: right;
+    font-weight: 100;
+    margin-left: 10px;
+    margin-left: 16px;
   }
 </style>
 <script>
@@ -293,8 +305,8 @@
                     </div>
                     <div>
                       <a href="https://app.assetshare.co.za/register" target="_blank"
-                        class="bg-white hover:bg-gray-200 text-black rounded-[5px] border-[#919EAB52] border text-lg font-bold leading-[21px] py-3 px-6 cursor-pointer w-[120px]">Sign
-                        Up</a>
+                        class="bg-white hover:bg-gray-200 text-black rounded-[5px] border-[#919EAB52] border text-lg font-bold leading-[21px] py-3 px-6 cursor-pointer">Sign
+                        Up <span class="ml-4 font-thin">></span></a>
                     </div>
                   </div>
                   <div class="flex flex-col gap-6">
@@ -308,7 +320,7 @@
                     </div>
                     <div>
                       <button onclick="scrollToBottom()"
-                        class="bg-white hover:bg-gray-200 text-black rounded-[5px] border-[#919EAB52] border text-lg font-bold leading-[21px] py-3 px-6 cursor-pointer w-[160px]">Contact
+                        class="right-caret bg-white hover:bg-gray-200 text-black rounded-[5px] border-[#919EAB52] border text-lg font-bold leading-[21px] py-3 px-6 cursor-pointer">Contact
                         Us</button>
                     </div>
                   </div>
