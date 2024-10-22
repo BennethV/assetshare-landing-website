@@ -9,9 +9,63 @@
   <link rel="stylesheet" href="/style.css">
   <title>AssetShare</title>
 </head>
+
+<style>
+  @font-face {
+    font-family: 'SF Pro Display';
+    src: url('/fonts/SF-Pro-Display-Regular.otf') format('opentype');
+  }
+
+  .collapsible {
+    outline: none;
+  }
+
+  .collapsible:after {
+    /*Right caret*/
+    content: '>';
+    color: #212B36;
+    float: right;
+    margin-left: 5px;
+  }
+
+  .active:after {
+    /*icon ^ */
+    content: '^';
+    font-size: 24px;
+  }
+
+  .content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+  }
+</style>
 <script>
   function scrollToBottom() {
     window.scrollTo(0, document.body.scrollHeight, 'smooth');
+  }
+
+  /**
+    * Accordion functionality
+  */
+
+  function toggleAccordion() {
+    console.log("Button clicked");
+    // get clicked item
+    var item = event.currentTarget;
+
+    // toggle the active class
+    item.classList.toggle("active");
+    console.log("Item clicked", item);
+    // get the content of the clicked item next div/ neightbour
+    var content = item.nextElementSibling;
+    console.log("Content", content);
+    // toggle the content
+    if (content.style.maxHeight) {
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
   }
 </script>
 
@@ -276,218 +330,350 @@
           <div class="w-full h-fit  p-20" id="faq">
             <div class="w-full flex items-start justify-center">
               <div class="w-[730px]">
-                <div>
+                <div class="w-full text-center mb-20">
                   <h2 class="font-bold text-5xl leading[64px] text-[#212B36] mb-6">Frequently Asked Questions</h2>
                 </div>
-                <div>
+                <div class="w-[700px] flex flex-col gap-4">
                   <!-- FAQ Accordion Starts Here -->
                   <div>
-                    <div>
-                      <h4 class="text-black font-bold text-lg">What is AssetShare?</h4>
+                    <div onclick="toggleAccordion()" class="collapsible mb-2 w-full outline-none cursor-pointer active">
+                      <span class="text-[#212B36] font-bold text-lg">What is AssetShare?</span>
                     </div>
-                    <div>
-                      <p class="text-base font-normal leading-5 text-left w-[440px] text-[#637381]">
+                    <div class="content overflow-hidden w-full" style="max-height: 60px;">
+                      <p class="text-base font-normal leading-5 text-left w-full text-[#637381]">
                         Assetshare is an online marketplace that connects construction companies and contractors with
                         machinery owners. Our platform enables users to rent a wide range of construction machinery,
                         ensuring efficiency and cost-effectiveness in project execution.
                       </p>
                     </div>
                   </div>
-                  <!-- FAQ Accordion Ends Here -->
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- FAQ Ends Here -->
-          <!-- Sign Up Starts Here-->
-          <div class="w-full" id="info-row-signup">
-            <div class="w-full flex justify-center items-center">
-              <div class="w-full h-[445px] bg-center bg-cover bg-[url('/images/multigraycranessky.jpg')]">
-                <div class="w-full flex items-center h-full justify-center">
-                  <div class="flex flex-col items-center gap-16">
-                    <div class="">
-                      <p class="font-bold text-5xl text-white">Sign Up now and become part<br>
-                        of making construction easier.</p>
-                    </div>
-                    <div class="">
-                      <div class="text-right">
-                        <a href="https://app.assetshare.co.za/register" target="_blank"
-                          class="bg-[#FFD602] hover:bg-[#DFBB00] text-black rounded-[5px] text-lg font-bold leading-[21px] py-3 px-4 cursor-pointer">Sign
-                          Up Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Sign Up Ends Here-->
-          <!-- Meet The Team Starts Here-->
-          <div class="w-full bg-[#F1F1F1] p-20" id="info-meet-the-team">
-            <div class="w-full flex flex-row gap-16">
-              <div>
-                <div class="flex flex-col gap-8">
+                  <hr class="w-full ">
                   <div>
-                    <p class="font-bold text-5xl leading[64px] mb-6">Meet the team</p>
+                    <div onclick="toggleAccordion()" class="collapsible mb-2 w-full outline-none cursor-pointer">
+                      <span class="text-[#212B36] font-bold text-lg">How does the escrow feature work?</span>
+                    </div>
+                    <div class="content overflow-hidden w-full">
+                      <p class="text-base font-normal leading-5 text-left w-full text-[#637381]">
+                        Our escrow feature provides a secure payment system. When a contractor rents machinery, the
+                        payment is held in escrow and is only released to the machinery owner once the equipment has
+                        safely arrived at the contractor's site. This ensures that both parties are protected against
+                        any risks.
+                      </p>
+                    </div>
                   </div>
+                  <hr class="w-full ">
                   <div>
-                    <p class="text-base font-normal leading-5 text-left w-[440px] text-[#637381]">Our team is made up of
-                      industry professionals who are passionate about leveraging technology to transform the
-                      construction and mining rental sectors. We are dedicated to creating a centralized marketplace
-                      where machinery owners and renters can seamlessly connect and achieve mutual success.</p>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div class="flex flex-row gap-4 w-[800px] overflow-x-auto">
-                  <!-- Founder/CEO Starts Here -->
-                  <div class="w-full md:w-[300px]">
-                    <div class="flex flex-col items-center w-full gap-4">
-                      <div class="">
-                        <img src="/images/team/founder-ceo.png"
-                          class="h-[360px] w-[270px] rounded-[10px] object-cover" />
-                      </div>
-                      <div class="text-center">
-                        <p class="mb-2 text-base font-bols leading-5 text-[#637381]">CEO</p>
-                        <p class="text-base font-normal leading-5 text-[#637381]">TEBOGO MPE</p>
-                      </div>
+                    <div onclick="toggleAccordion()" class="collapsible mb-2 w-full outline-none cursor-pointer">
+                      <span class="text-[#212B36] font-bold text-lg">What types of construction machinery can I rent on
+                        Assetshare?</span>
+                    </div>
+                    <div class="content overflow-hidden w-full">
+                      <p class="text-base font-normal leading-5 text-left w-full text-[#637381]">
+                        You can rent a wide variety of machinery, including excavators, loaders, bulldozers, tipper
+                        trucks, and more. We offer equipment from multiple categories to meet the diverse needs of
+                        construction and mining projects.
+                      </p>
                     </div>
                   </div>
-                  <!-- Founder/CEO Ends Here -->
-                  <!-- Angel Investor Starts Here -->
-                  <div class="w-full md:w-[300px]">
-                    <div class="flex flex-col items-center w-full gap-4">
-                      <div class="">
-                        <img src="/images/team/angel-investor.png"
-                          class="h-[360px] w-[270px] rounded-[10px] object-cover" />
-                      </div>
-                      <div class="text-center">
-                        <p class="mb-2 text-base font-bols leading-5 text-[#637381]">Angel Investor</p>
-                        <p class="text-base font-normal leading-5 text-[#637381]">TUMELO MATLALA</p>
-                      </div>
+                  <hr class="w-full ">
+                  <div>
+                    <div onclick="toggleAccordion()" class="collapsible mb-2 w-full outline-none cursor-pointer">
+                      <span class="text-[#212B36] font-bold text-lg">How do I list my machinery on Assetshare?</span>
+                    </div>
+                    <div class="content overflow-hidden w-full">
+                      <p class="text-base font-normal leading-5 text-left w-full text-[#637381]">
+                        Listing your machinery is simple. Sign up as an owner, complete your profile, and upload the
+                        details and images of your machinery. Once your listing is approved, it will be visible to
+                        potential renters.
+                      </p>
                     </div>
                   </div>
-                  <!-- Angel Investor Ends Here -->
-                  <!-- UI Lead Starts Here -->
-                  <div class="w-full md:w-[300px]">
-                    <div class="flex flex-col items-center w-full gap-4">
-                      <div class="">
-                        <img src="/images/team/ui-lead.png" class="h-[360px] w-[270px] rounded-[10px] object-cover" />
-                      </div>
-                      <div class="text-center">
-                        <p class="mb-2 text-base font-bols leading-5 text-[#637381]">UI Lead</p>
-                        <p class="text-base font-normal leading-5 text-[#637381]">MONIQUE GROBLER</p>
-                      </div>
+                  <hr class="w-full ">
+                  <div>
+                    <div onclick="toggleAccordion()" class="collapsible mb-2 w-full outline-none cursor-pointer">
+                      <span class="text-[#212B36] font-bold text-lg">What are the benefits of using Assetshare as a
+                        contractor?</span>
+                    </div>
+                    <div class="content overflow-hidden w-full">
+                      <p class="text-base font-normal leading-5 text-left w-full text-[#637381]">
+                        Contractors benefit from competitive pricing, a wide selection of equipment, and our secure
+                        escrow system that ensures payment safety. Additionally, our platform provides a user-friendly
+                        experience for easy navigation and transaction management.
+                      </p>
                     </div>
                   </div>
-                  <!-- UI Lead Ends Here -->
-                  <!-- Bus. Dev. Off Starts Here -->
-                  <div class="w-full md:w-[300px]">
-                    <div class="flex flex-col items-center w-full gap-4">
-                      <div class="">
-                        <img src="/images/team/liason-officer.png"
-                          class="h-[360px] w-[270px] rounded-[10px] object-cover" />
-                      </div>
-                      <div class="text-center">
-                        <p class="mb-2 text-base font-bols leading-5 text-[#637381]">Liason Officer</p>
-                        <p class="text-base font-normal leading-5 text-[#637381]">KAGISO MATLALA</p>
-                      </div>
+                  <hr class="w-full ">
+                  <div>
+                    <div onclick="toggleAccordion()" class="collapsible mb-2 w-full outline-none cursor-pointer">
+                      <span class="text-[#212B36] font-bold text-lg">How does Assetshare ensure the quality of listed
+                        machinery?</span>
+                    </div>
+                    <div class="content overflow-hidden w-full">
+                      <p class="text-base font-normal leading-5 text-left w-full text-[#637381]">
+                        Assetshare requires all machinery owners to provide detailed information and images of their
+                        equipment. We also encourage renters to review and rate their experience, ensuring transparency
+                        and accountability.
+                      </p>
                     </div>
                   </div>
-                  <!-- Bus. Dev. Off Ends Here -->
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Meet The Team Ends Here-->
+                  <hr class="w-full ">
+                  <div>
+                    <div onclick="toggleAccordion()" class="collapsible mb-2 w-full outline-none cursor-pointer">
+                      <span class="text-[#212B36] font-bold text-lg">What is the process for renting machinery on
+                        Assetshare?
+                      </span>
+                    </div>
+                    <div class="content overflow-hidden w-full">
+                      <p class="text-base font-normal leading-5 text-left w-full text-[#637381]">
+                        Browse the available machinery, select the equipment that suits your needs, add a rental period,
+                        and send a rental request. Once the owner approves, you make a payment that is securely held in
+                        escrow until the machinery arrives at your site.
 
-          <!--Contact us Starts Here-->
-          <div class="w-full bg-[#F1F1F1] p-20 h-[800px]" id="contat-us">
-            <div class="flex flex-row gap-10 justify-center">
-              <div class="basis-[370px]">
-                <div class="mb-16">
-                  <p class="font-bold text-5xl leading[64px] mb-6">Get In Touch</p>
-                </div>
-                <div class="flex flex-col gap-6">
+                      </p>
+                    </div>
+                  </div>
+                  <hr class="w-full ">
                   <div>
-                    <div class="flex flex-col">
-                      <div class="flex flex-row gap-2">
-                        <div>
-                          <img src="/icons/ic-email.svg" alt="Email icon" />
-                        </div>
-                        <div>
-                          <p class="text-sm font-bold leading-5 text-[#212B36]">Email</p>
+                    <div onclick="toggleAccordion()" class="collapsible mb-2 w-full outline-none cursor-pointer">
+                      <span class="text-[#212B36] font-bold text-lg">What happens if the machinery does not arrive on
+                        time
+                        or is not as described?
+                      </span>
+                    </div>
+                    <div class="content overflow-hidden w-full">
+                      <p class="text-base font-normal leading-5 text-left w-full text-[#637381]">
+                        In such cases, the escrow feature protects your payment. You can raise a dispute through our
+                        platform, and our support team will work with both parties to resolve the issue.
+
+                      </p>
+                    </div>
+                  </div>
+                  <hr class="w-full ">
+                  <div>
+                    <div onclick="toggleAccordion()" class="collapsible mb-2 w-full outline-none cursor-pointer">
+                      <span class="text-[#212B36] font-bold text-lg">Are there any fees for using Assetshare? </span>
+                    </div>
+                    <div class="content overflow-hidden w-full">
+                      <p class="text-base font-normal leading-5 text-left w-full text-[#637381]">
+                        Assetshare charges a nominal service fee on successful rentals to cover platform maintenance and
+                        support. The fee is clearly indicated during the transaction process.
+
+                      </p>
+                    </div>
+                  </div>
+                  <hr class="w-full ">
+                  <div>
+                    <div onclick="toggleAccordion()" class="collapsible mb-2 w-full outline-none cursor-pointer">
+                      <span class="text-[#212B36] font-bold text-lg">How do I contact Assetshare support?</span>
+                    </div>
+                    <div class="content overflow-hidden w-full">
+                      <p class="text-base font-normal leading-5 text-left w-full text-[#637381]">
+                        You can reach our support team via email at<span><a class="cursor-pointer text-[#212B36]"
+                            href="mailto:info@assetshare.co.za" target="_blank">
+                            info@assetshare.co.za
+                          </a></span> or through the live chat
+                        feature on our website. We are here to assist you with any questions or issues.
+
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- FAQ Ends Here -->
+            <!-- Sign Up Starts Here-->
+            <div class="w-full mt-20" id="info-row-signup">
+              <div class="w-full flex justify-center items-center">
+                <div class="w-full h-[445px] bg-center bg-cover bg-[url('/images/multigraycranessky.jpg')]">
+                  <div class="w-full flex items-center h-full justify-center">
+                    <div class="flex flex-col items-center gap-16">
+                      <div class="">
+                        <p class="font-bold text-5xl text-white">Sign Up now and become part<br>
+                          of making construction easier.</p>
+                      </div>
+                      <div class="">
+                        <div class="text-right">
+                          <a href="https://app.assetshare.co.za/register" target="_blank"
+                            class="bg-[#FFD602] hover:bg-[#DFBB00] text-black rounded-[5px] text-lg font-bold leading-[21px] py-3 px-4 cursor-pointer">Sign
+                            Up Now</a>
                         </div>
                       </div>
-                      <div>
-                        <a class="cursor-pointer text-[#212B36]" href="mailto:info@assetshare.co.za" target="_blank">
-                          <p class="text-sm font-normal leading-3 text-[#212B36]">info@assetshare.co.za</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Sign Up Ends Here-->
+            <!-- Meet The Team Starts Here-->
+            <div class="w-full bg-[#F1F1F1] p-20" id="info-meet-the-team">
+              <div class="w-full flex flex-row gap-16">
+                <div>
+                  <div class="flex flex-col gap-8">
+                    <div>
+                      <p class="font-bold text-5xl leading[64px] mb-6">Meet the team</p>
+                    </div>
+                    <div>
+                      <p class="text-base font-normal leading-5 text-left w-[440px] text-[#637381]">Our team is made up
+                        of
+                        industry professionals who are passionate about leveraging technology to transform the
+                        construction and mining rental sectors. We are dedicated to creating a centralized marketplace
+                        where machinery owners and renters can seamlessly connect and achieve mutual success.</p>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex flex-row gap-4 w-[800px] overflow-x-auto">
+                    <!-- Founder/CEO Starts Here -->
+                    <div class="w-full md:w-[300px]">
+                      <div class="flex flex-col items-center w-full gap-4">
+                        <div class="">
+                          <img src="/images/team/founder-ceo.png"
+                            class="h-[360px] w-[270px] rounded-[10px] object-cover" />
+                        </div>
+                        <div class="text-center">
+                          <p class="mb-2 text-base font-bols leading-5 text-[#637381]">CEO</p>
+                          <p class="text-base font-normal leading-5 text-[#637381]">TEBOGO MPE</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Founder/CEO Ends Here -->
+                    <!-- Angel Investor Starts Here -->
+                    <div class="w-full md:w-[300px]">
+                      <div class="flex flex-col items-center w-full gap-4">
+                        <div class="">
+                          <img src="/images/team/angel-investor.png"
+                            class="h-[360px] w-[270px] rounded-[10px] object-cover" />
+                        </div>
+                        <div class="text-center">
+                          <p class="mb-2 text-base font-bols leading-5 text-[#637381]">Angel Investor</p>
+                          <p class="text-base font-normal leading-5 text-[#637381]">TUMELO MATLALA</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Angel Investor Ends Here -->
+                    <!-- UI Lead Starts Here -->
+                    <div class="w-full md:w-[300px]">
+                      <div class="flex flex-col items-center w-full gap-4">
+                        <div class="">
+                          <img src="/images/team/ui-lead.png" class="h-[360px] w-[270px] rounded-[10px] object-cover" />
+                        </div>
+                        <div class="text-center">
+                          <p class="mb-2 text-base font-bols leading-5 text-[#637381]">UI Lead</p>
+                          <p class="text-base font-normal leading-5 text-[#637381]">MONIQUE GROBLER</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- UI Lead Ends Here -->
+                    <!-- Bus. Dev. Off Starts Here -->
+                    <div class="w-full md:w-[300px]">
+                      <div class="flex flex-col items-center w-full gap-4">
+                        <div class="">
+                          <img src="/images/team/liason-officer.png"
+                            class="h-[360px] w-[270px] rounded-[10px] object-cover" />
+                        </div>
+                        <div class="text-center">
+                          <p class="mb-2 text-base font-bols leading-5 text-[#637381]">Liason Officer</p>
+                          <p class="text-base font-normal leading-5 text-[#637381]">KAGISO MATLALA</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Bus. Dev. Off Ends Here -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Meet The Team Ends Here-->
+
+            <!--Contact us Starts Here-->
+            <div class="w-full bg-[#F1F1F1] p-20 h-[800px]" id="contat-us">
+              <div class="flex flex-row gap-10 justify-center">
+                <div class="basis-[370px]">
+                  <div class="mb-16">
+                    <p class="font-bold text-5xl leading[64px] mb-6">Get In Touch</p>
+                  </div>
+                  <div class="flex flex-col gap-6">
+                    <div>
+                      <div class="flex flex-col">
+                        <div class="flex flex-row gap-2">
+                          <div>
+                            <img src="/icons/ic-email.svg" alt="Email icon" />
+                          </div>
+                          <div>
+                            <p class="text-sm font-bold leading-5 text-[#212B36]">Email</p>
+                          </div>
+                        </div>
+                        <div>
+                          <a class="cursor-pointer text-[#212B36]" href="mailto:info@assetshare.co.za" target="_blank">
+                            <p class="text-sm font-normal leading-3 text-[#212B36]">info@assetshare.co.za</p>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="flex flex-col">
+                        <div class="flex flex-row gap-2">
+                          <div>
+                            <img src="/icons/ic-mobile.svg" alt="Phone icon" />
+                          </div>
+                          <div>
+                            <p class="text-sm font-bold leading-5 text-[#212B36]">Phone</p>
+                          </div>
+                        </div>
+                        <div>
+                          <a class="cursor-pointer text-[#212B36]" href="tel:+27679884419">
+                            <p class="text-sm font-normal leading-5 text-[#212B36]">+27 679 884 419</p>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="flex flex-col">
+                        <div class="flex flex-row gap-2">
+                          <div>
+                            <img src="/icons/ic-pin.svg" alt="Location icon" />
+                          </div>
+                          <div>
+                            <p class="text-sm font-bold leading-5 text-[#212B36]">Location</p>
+                          </div>
+                        </div>
+                        <div>
+                          <p class="text-sm font-normal leading-5 text-[#212B36]">Olivedae, Sharonlea, Randburg, 2188
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="mb-4">
+                        <p class="text-xs font-bold leading-5 text-[#212B36]">FOLLOW US</p>
+                      </div>
+                      <div class="flex flex-row gap-4 items-center">
+                        <a href="https://za.linkedin.com/company/assetshare" target="_blank">
+                          <div><img src="/icons/ic-facebbook.svg" alt="Facebook icon" /></div>
+                        </a>
+                        <a href="https://www.instagram.com/assetshare/" target="_blank">
+                          <div><img src="/icons/ic-instagram.svg" alt="Facebook icon" /></div>
+                        </a>
+                        <a href="https://za.linkedin.com/company/assetshare" target="_blank">
+                          <div><img src="/icons/ic-linkedin.svg" alt="Facebook icon" /></div>
                         </a>
                       </div>
                     </div>
                   </div>
-                  <div>
-                    <div class="flex flex-col">
-                      <div class="flex flex-row gap-2">
-                        <div>
-                          <img src="/icons/ic-mobile.svg" alt="Phone icon" />
-                        </div>
-                        <div>
-                          <p class="text-sm font-bold leading-5 text-[#212B36]">Phone</p>
-                        </div>
-                      </div>
-                      <div>
-                        <a class="cursor-pointer text-[#212B36]" href="tel:+27679884419">
-                          <p class="text-sm font-normal leading-5 text-[#212B36]">+27 679 884 419</p>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="flex flex-col">
-                      <div class="flex flex-row gap-2">
-                        <div>
-                          <img src="/icons/ic-pin.svg" alt="Location icon" />
-                        </div>
-                        <div>
-                          <p class="text-sm font-bold leading-5 text-[#212B36]">Location</p>
-                        </div>
-                      </div>
-                      <div>
-                          <p class="text-sm font-normal leading-5 text-[#212B36]">Olivedae, Sharonlea, Randburg, 2188</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="mb-4"><p class="text-xs font-bold leading-5 text-[#212B36]">FOLLOW US</p></div>
-                    <div class="flex flex-row gap-4 items-center">
-                      <a href="https://za.linkedin.com/company/assetshare" target="_blank">
-                        <div><img src="/icons/ic-facebbook.svg" alt="Facebook icon" /></div>
-                      </a>
-                      <a href="https://www.instagram.com/assetshare/" target="_blank">
-                        <div><img src="/icons/ic-instagram.svg" alt="Facebook icon" /></div>
-                      </a>
-                      <a href="https://za.linkedin.com/company/assetshare" target="_blank">
-                        <div><img src="/icons/ic-linkedin.svg" alt="Facebook icon" /></div>
-                      </a>
-                    </div>
-                  </div>
                 </div>
-              </div>
-              <div>
-                <div class="flex justify-center items-center w-full">
+                <div>
+                  <div class="flex justify-center items-center w-full">
 
-                  <div class="w-[662px] h-[498px] bg-gray-300 bg-center bg-cover bg-[url('/images/map.jpg')]">
+                    <div class="w-[662px] h-[498px] bg-gray-300 bg-center bg-cover bg-[url('/images/map.jpg')]">
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            <!--Contact us Ends Here-->
           </div>
-          <!--Contact us Ends Here-->
         </div>
       </div>
     </div>
-  </div>
 </body>
 
 </html>
