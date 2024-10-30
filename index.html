@@ -60,6 +60,11 @@
     font-weight: 100;
     margin-right: 10px;
   }
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
 </style>
 <script>
   function scrollToBottom() {
@@ -349,7 +354,7 @@
             <div class="w-full flex flex-row py-4">
               <div class="basis-[200px]">
                 <div class="flex items-center justify-center h-full w-full cursor-pointer">
-                  <button class="left-caret"></button>
+                  <button class="left-caret" onclick="plusSlides(-1)"></button>
                 </div>
               </div>
               <div class="basis-full">
@@ -357,24 +362,28 @@
                   <div>
                     <p class="text-[#3F2A7B] font-bold text-sm leading-4">OUR CLIENT TESTIMONIALS</p>
                   </div>
+                  <!-- Testimony starts here -->
                   <div>
                     <p class="font-normal text-xl leading-9 text-[#212B36] w-[530px]">"Assetshare simplifies the process
                       of renting out my machinery. Uploading is quick and easy, and
                       managing my listings is seamless. I'm extremely satisfied!"</p>
                   </div>
+                  <!-- Testimony ends here -->
+                  <!-- Circles Start Here -->
                   <div>
                     <div class="flex flex-row gap-4">
-                      <div class="cursor-pointer rounded-full w-[8px] h-[8px] bg-[#f8e3a6]"></div>
-                      <div class="cursor-pointer rounded-full w-[8px] h-[8px] bg-[#FFBE00]"></div>
-                      <div class="cursor-pointer rounded-full w-[8px] h-[8px] bg-[#f8e3a6]"></div>
-                      <div class="cursor-pointer rounded-full w-[8px] h-[8px] bg-[#f8e3a6]"></div>
+                      <div onclick="currentSlide(1)" class="cursor-pointer rounded-full w-[8px] h-[8px] bg-[#f8e3a6]"></div>
+                      <div onclick="currentSlide(2)" class="cursor-pointer rounded-full w-[8px] h-[8px] bg-[#FFBE00]"></div>
+                      <div onclick="currentSlide(3)" class="cursor-pointer rounded-full w-[8px] h-[8px] bg-[#f8e3a6]"></div>
+                      <div onclick="currentSlide(4)" class="cursor-pointer rounded-full w-[8px] h-[8px] bg-[#f8e3a6]"></div>
                     </div>
                   </div>
+                  <!-- Circles End Here -->
                 </div>
               </div>
               <div class="basis-[200px]">
                 <div class="flex items-center justify-center h-full w-full cursor-pointer">
-                  <button class="right-caret"></button>
+                  <button class="right-caret" onclick="plusSlides(1)"></button>
                 </div>
               </div>
 
