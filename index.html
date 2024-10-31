@@ -61,10 +61,10 @@
     margin-right: 10px;
   }
 
-/* Hide the images by default */
-.mySlides {
-  display: none;
-}
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
 </style>
 <script>
   function scrollToBottom() {
@@ -92,6 +92,57 @@
     } else {
       content.style.maxHeight = content.scrollHeight + "px";
     }
+  }
+  /**
+    * Testimonials slide
+  */
+  let slideIndex = 1;
+  // showSlides(slideIndex);
+
+  // Next/previous controls
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  // Thumbnail image controls
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("slide-card");
+    let dots = document.getElementsByClassName("dot");
+    console.log("Slides", slides);
+    console.log("Dots", dots);
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    //  bg-[#f8e3a6]">bg-[#FFBE00]"
+    for (i = 0; i < dots.length; i++) {
+      // dots[i].className = dots[i].className.replace(" active", "");
+      dots[i].style.backgroundColor = "#f8e3a6";
+    }
+    slides[slideIndex - 1].style.display = "block";
+    // dots[slideIndex - 1].className += " active";
+    dots[slideIndex - 1].style.backgroundColor = "#FFBE00";
+  }
+
+  /**
+    * AssetShare Demo Video
+  */
+  function showAssetShareDemoVideo() {
+    let assetShareDemoVideo = document.querySelector('.assetsharedemovideo');
+    assetShareDemoVideo.style.display = "block";
+
+    // hide the play button
+    let playButton = document.querySelector('.playbutton');
+    playButton.style.display = "none";
+
+    // hide the message
+    let videoMessage = document.querySelector('.videomessage');
   }
 </script>
 
@@ -283,19 +334,29 @@
           <div class="w-full" id="info-row-demo">
             <div class="w-full flex justify-center items-center">
               <div class="w-[1152px] h-[648px] bg-center bg-cover bg-[url('/images/videooverlay.jpg')]">
-                <div class="w-full flex items-center h-full justify-center">
-                  <div class="flex flex-col items-center gap-48">
+                <div class="relative w-full flex items-center h-full justify-center">
+                  <div class="flex flex-col items-center gap-48 z-50">
                     <div class="">
                       <p class="font-bold text-5xl text-white">Our Platform</p>
                     </div>
                     <div class="flex flex-row justify-center">
-                      <img class="object-scale-down w-[56px] h-[56px] cursor-pointer" src="/icons/playbtnpurple.svg">
+                      <img class="playbutton object-scale-down w-[56px] h-[56px] cursor-pointer"
+                        src="/icons/playbtnpurple.svg" onclick="showAssetShareDemoVideo()">
                     </div>
-                    <div class="">
+                    <div class="videomessage">
                       <p class="font-bold text-base text-[#637381]">A quick view of...</p>
                     </div>
                   </div>
-
+                  <!-- Vid starts here -->
+                  <div class="absolute w-full h-full">
+                    <div class="assetsharedemovideo relative rounded-xl overflow-auto" style="display: none;">
+                      <iframe id="assetshareDemoPlayer" class="w-full h-full aspect-video rounded-lg shadow-lg"
+                        src="https://www.youtube.com/embed/tb3c57sp_iY?si=mmV2cTp52tNKHK1a&rel=0&autoplay=1&loop=1"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; autoplay"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -358,24 +419,51 @@
                 </div>
               </div>
               <div class="basis-full">
-                <div class="flex flex-col items-center gap-20">
+                <div class="flex flex-col items-center gap-10">
                   <div>
                     <p class="text-[#3F2A7B] font-bold text-sm leading-4">OUR CLIENT TESTIMONIALS</p>
                   </div>
                   <!-- Testimony starts here -->
-                  <div>
-                    <p class="font-normal text-xl leading-9 text-[#212B36] w-[530px]">"Assetshare simplifies the process
-                      of renting out my machinery. Uploading is quick and easy, and
-                      managing my listings is seamless. I'm extremely satisfied!"</p>
+                  <div class="slide-card-container h-[200px] transi">
+                    <div class="slide-card transition duration-300 ease-out" style="display: block;">
+                      <p class="font-normal text-xl leading-9 text-[#212B36] w-[530px]">"Assetshare simplifies the
+                        process of renting out my machinery. Uploading is quick and easy, and managing my listings is
+                        seamless. I'm extremely satisfied!" ~ Ompfa Sitholimela</p>
+                    </div>
+                    <div class="slide-card transition duration-300 ease-out" style="display: none;">
+                      <p class="font-normal text-xl leading-9 text-[#212B36] w-[530px]">"Assetshare has greatly enhanced
+                        my workflow. The platform provides precise information and is very user-friendly, allowing me to
+                        generate accurate quotes quickly.
+                        I highly recommend it to fellow quantity surveyors!" ~ Mackenzie Lethole</p>
+                    </div>
+                    <div class="slide-card transition duration-300 ease-out" style="display: none;">
+                      <p class="font-normal text-xl leading-9 text-[#212B36] w-[530px]">"As a contractor, Assetshare has
+                        revolutionized my work. The ability to generate quotes swiftly based on real- time machinery
+                        availability is invaluable. It's efficient, dependable, and has made my job much easier." ~ Thunder Wealth Creations</p>
+                    </div>
+                    <div class="slide-card transition duration-300 ease-out" style="display: none;">
+                      <p class="font-normal text-xl leading-9 text-[#212B36] w-[530px]">"I was impressed by how swiftly
+                        I could upload my machines. The management tools are intuitive, making it easy to monitor
+                        everything. Outstanding platform!" ~ Tshego Mthombeni</p>
+                    </div>
                   </div>
                   <!-- Testimony ends here -->
                   <!-- Circles Start Here -->
                   <div>
                     <div class="flex flex-row gap-4">
-                      <div onclick="currentSlide(1)" class="cursor-pointer rounded-full w-[8px] h-[8px] bg-[#f8e3a6]"></div>
-                      <div onclick="currentSlide(2)" class="cursor-pointer rounded-full w-[8px] h-[8px] bg-[#FFBE00]"></div>
-                      <div onclick="currentSlide(3)" class="cursor-pointer rounded-full w-[8px] h-[8px] bg-[#f8e3a6]"></div>
-                      <div onclick="currentSlide(4)" class="cursor-pointer rounded-full w-[8px] h-[8px] bg-[#f8e3a6]"></div>
+                      <div onclick="currentSlide(1)"
+                        class="dot cursor-pointer rounded-full w-[8px] h-[8px] bg-[#f8e3a6] transition duration-150 ease-out hover:ease-in hover:bg-[#FFBE00]"
+                        style="background-color: #FFBE00;">
+                      </div>
+                      <div onclick="currentSlide(2)"
+                        class="dot cursor-pointer rounded-full w-[8px] h-[8px] bg-[#f8e3a6] transition duration-150 ease-out hover:ease-in hover:bg-[#FFBE00]">
+                      </div>
+                      <div onclick="currentSlide(3)"
+                        class="dot cursor-pointer rounded-full w-[8px] h-[8px] bg-[#f8e3a6] transition duration-150 ease-out hover:ease-in hover:bg-[#FFBE00]">
+                      </div>
+                      <div onclick="currentSlide(4)"
+                        class="dot cursor-pointer rounded-full w-[8px] h-[8px] bg-[#f8e3a6] transition duration-150 ease-out hover:ease-in hover:bg-[#FFBE00]">
+                      </div>
                     </div>
                   </div>
                   <!-- Circles End Here -->
