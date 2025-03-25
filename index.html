@@ -68,10 +68,29 @@
   .mySlides {
     display: none;
   }
+  
+  /* Smooth scrolling for team container */
+  #team-container {
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none;  /* Hide scrollbar for Firefox */
+  }
+  
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  #team-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Ensure all team members (original and clones) appear identical */
+  .team-member, .team-member-clone {
+    flex: 0 0 auto;
+  }
 </style>
 <script>
   // video var
   var player;
+  var teamSlideInterval; // Variable to store the interval for team slideshow
+  var teamObserver; // Intersection Observer for the team section
 
   function scrollToBottom() {
     window.scrollTo(0, document.body.scrollHeight, 'smooth');
@@ -173,7 +192,7 @@
   
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('assetshareDemoPlayer', {
-      videoId: 'tb3c57sp_iY',
+      videoId: '2sol833MBSY',
       events: {
         'onReady': onPlayerReady,
         'onStateChange': onPlayerStateChange
@@ -198,6 +217,162 @@
   function playVideo() {
     player.playVideo();
   }
+
+  /**
+   * Team slideshow functionality
+   */
+  function startTeamSlideshow() {
+    if (teamSlideInterval) {
+      clearInterval(teamSlideInterval);
+    }
+    
+    const teamContainer = document.getElementById('team-container');
+    if (!teamContainer) return;
+    
+    const teamMembers = document.querySelectorAll('.team-member');
+    const totalMembers = teamMembers.length;
+    let currentIndex = 0;
+    
+    console.log("Team slideshow started with", totalMembers, "members");
+    
+    teamSlideInterval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalMembers;
+      
+      // Get the position of the target slide
+      const teamMemberCard = teamMembers[0];
+      const targetPosition = teamMemberCard.clientWidth; // Get the position from the team member card instead of calculating it
+      
+      // Scroll to the target slide
+      teamContainer.scrollTo({
+        left: currentIndex === 1 ? 0 : targetPosition, // Corrected the condition to use a ternary operator
+        behavior: 'smooth'
+      });
+      
+      console.log("Scrolling to team member", currentIndex, "at position", targetPosition);
+      
+      // If we're at the last slide, prepare to loop back to the beginning after a short delay
+      if (currentIndex === totalMembers - 1) {
+        setTimeout(() => {
+          // This delay gives time to view the last slide before quickly resetting
+          teamContainer.scrollTo({
+            left: 0,
+            behavior: 'auto' // Using 'auto' instead of 'smooth' for the reset to avoid visible scrolling
+          });
+          currentIndex = 0;
+          console.log("Reset to beginning");
+        }, 2500); // Wait a bit less than the interval time before resetting
+      }
+    }, 3000); // Change slide every 3 seconds
+  }
+  
+  function stopTeamSlideshow() {
+    if (teamSlideInterval) {
+      clearInterval(teamSlideInterval);
+      teamSlideInterval = null;
+      console.log("Team slideshow stopped");
+    }
+  }
+  
+  // Setup Intersection Observer to detect when team section is visible
+  function setupTeamSectionObserver() {
+    const teamSection = document.getElementById('info-meet-the-team');
+    if (!teamSection) return;
+    
+    // Create observer with options
+    teamObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        // If team section is visible
+        if (entry.isIntersecting) {
+          startTeamSlideshow();
+        } else {
+          stopTeamSlideshow();
+        }
+      });
+    }, {
+      // Element is considered "visible" when at least 20% of it is in viewport
+      threshold: 0.2
+    });
+    
+    // Start observing the team section
+    teamObserver.observe(teamSection);
+  }
+
+  // Start the slideshow when the document is loaded
+  document.addEventListener("DOMContentLoaded", function() {
+    showSlides(slideIndex);
+    
+    // Setup the observer for the team section instead of starting the slideshow immediately
+    setupTeamSectionObserver();
+  });
+
+  // Clean up the interval and observer when navigating away from the page
+  window.addEventListener('beforeunload', function() {
+    if (teamSlideInterval) {
+      clearInterval(teamSlideInterval);
+    }
+    
+    if (teamObserver) {
+      teamObserver.disconnect();
+    }
+  });
+
+  /**
+   * Infinite scroll for pictures
+   */
+  function startPictureSlideshow() {
+    const pictureContainer = document.getElementById('picture-container');
+    console.log("Picture container", pictureContainer);
+    if (!pictureContainer) return;
+
+    const originalPictures = document.querySelectorAll('.picture');
+    if (originalPictures.length === 0) return;
+
+    // Clone pictures to create infinite loop effect
+    function setupInfiniteScroll() {
+      // Remove existing clones to avoid duplication
+      document.querySelectorAll('.picture-clone').forEach(clone => clone.remove());
+
+      // Clone pictures and append them to the container
+      originalPictures.forEach(picture => {
+        const clone = picture.cloneNode(true);
+        clone.classList.add('picture-clone');
+        pictureContainer.appendChild(clone);
+      });
+    }
+
+    // Initial setup
+    setupInfiniteScroll();
+
+    const pictureWidth = 300; // Width of each picture (including margin)
+    let scrollPosition = 0;
+    const totalWidth = pictureWidth * originalPictures.length;
+
+    setInterval(() => {
+      // Increment scroll position
+      scrollPosition += pictureWidth;
+
+      // Smooth scroll to the next picture
+      pictureContainer.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+      });
+
+      // Reset to the original section when reaching the cloned section
+      if (scrollPosition >= totalWidth) {
+        setTimeout(() => {
+          pictureContainer.scrollTo({
+            left: 0,
+            behavior: 'auto'
+          });
+          scrollPosition = 0;
+        }, 3000); // Wait 3 seconds before resetting
+      }
+    }, 3000); // Change picture every 3 seconds
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    startPictureSlideshow();
+  });
 </script>
 
 <body class="bg-[#f9f9f9]">
@@ -774,9 +949,9 @@
                 </div>
               </div>
               <div>
-                <div class="flex flex-row gap-4 md:w-[600px] lg:w-[350px] xl:w-[600px] overflow-x-auto">
+                <div id="team-container" class="flex flex-row gap-4 md:w-[600px] lg:w-[350px] xl:w-[600px] overflow-x-auto scroll-smooth">
                   <!-- Founder/CEO Starts Here -->
-                  <div class="w-full md:w-[300px] shrink-0">
+                  <div class="w-full md:w-[300px] shrink-0 team-member">
                     <div class="flex flex-col items-center w-full gap-4">
                       <div class="">
                         <img src="/images/team/founder-ceo.png"
@@ -790,7 +965,7 @@
                   </div>
                   <!-- Founder/CEO Ends Here -->
                   <!-- Angel Investor Starts Here -->
-                  <div class="w-full md:w-[300px] shrink-0">
+                  <div class="w-full md:w-[300px] shrink-0 team-member">
                     <div class="flex flex-col items-center w-full gap-4">
                       <div class="">
                         <img src="/images/team/angel-investor.png"
@@ -804,7 +979,7 @@
                   </div>
                   <!-- Angel Investor Ends Here -->
                   <!-- UI Lead Starts Here -->
-                  <div class="w-full md:w-[300px] shrink-0">
+                  <div class="w-full md:w-[300px] shrink-0 team-member">
                     <div class="flex flex-col items-center w-full gap-4">
                       <div class="">
                         <img src="/images/team/ui-lead.png" class="h-[360px] w-[270px] rounded-[10px] object-cover" />
@@ -817,7 +992,7 @@
                   </div>
                   <!-- UI Lead Ends Here -->
                   <!-- Bus. Dev. Off Starts Here -->
-                  <div class="w-full md:w-[300px] shrink-0">
+                  <div class="w-full md:w-[300px] shrink-0 team-member">
                     <div class="flex flex-col items-center w-full gap-4">
                       <div class="">
                         <img src="/images/team/liason-officer.png"
